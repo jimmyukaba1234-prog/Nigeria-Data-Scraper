@@ -1,0 +1,17 @@
+streamlit
+pandas
+numpy
+requests
+beautifulsoup4
+html5lib
+lxml
+openpyxl
+PyPDF2
+pdfplumber
+pdfminer.six
+PyMuPDF
+textract
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
