@@ -8,6 +8,7 @@ lxml
 python-docx
 openpyxl
 PyPDF2
+selenium
 pdfplumber
 pdfminer.six
 PyMuPDF
