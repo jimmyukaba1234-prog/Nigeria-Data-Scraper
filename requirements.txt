@@ -5,6 +5,7 @@ requests
 beautifulsoup4
 html5lib
 lxml
+python-docx
 openpyxl
 PyPDF2
 pdfplumber
