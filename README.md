@@ -1,101 +1,108 @@
-# Nigeria-Data-Scraper
-A modular, topic-based web scraping system built with Python + Streamlit for extracting structured Nigerian data (tables, statistics, and reports) from multiple authoritative sources.
+# 🇳🇬 Nigeria Statistics Web Scraper Pro
 
-This project scrapes, processes, and exports data across key Nigerian sectors such as:
+**A powerful, production-grade web scraper** built to extract official statistical data, reports, and PDFs from Nigerian government agencies and international organizations.
 
-- GDP
+---
 
-- Agriculture
+## ✨ Project Overview
 
-- Banking
+This is a **single-file Streamlit application** that intelligently scrapes, crawls, downloads, and organizes Nigerian statistical data from **22+ authoritative sources**.
 
-- Oil & Gas
+You simply enter a search term (e.g., "GDP 2024", "Unemployment Rate", "Inflation"), and the tool automatically:
+- Searches across multiple official websites
+- Crawls relevant pages
+- Downloads PDFs and extracts statistical data
+- Organizes everything locally and optionally uploads to Google Drive
 
-- Budget & Fiscal Data
+---
 
-- Education
+## 🚀 Key Features
 
-- Health
+- **Smart Multi-Source Scraping** — 22+ official sources (NBS, CBN, World Bank, IMF, etc.)
+- **Intelligent Crawling** — Multi-page BFS crawling with configurable depth
+- **Advanced PDF Handling** — Robust downloader with 403 bypass, retries, and rotating headers
+- **Concurrent Scraping** — Uses `ThreadPoolExecutor` for high performance
+- **Google Drive Integration** — One-click upload with automatic folder organization
+- **Rich Export Options** — CSV, JSON, Excel, PDF Report, ZIP of all PDFs
+- **Real-time Logging** — Thread-safe scraping log
+- **Beautiful Streamlit Dashboard** — Clean, responsive UI with quick search buttons
 
-- Trade
+---
 
-- Inflation
+## 🛠️ Tech Stack
 
-- Unemployment
+- **Frontend**: Streamlit
+- **Scraping**: Requests, BeautifulSoup4, Selenium (optional)
+- **Concurrency**: `concurrent.futures.ThreadPoolExecutor`
+- **Data Processing**: Pandas, NumPy
+- **PDF Handling**: PyPDF2, pdfplumber, PyMuPDF (fitz)
+- **Export**: ReportLab (PDF reports), zipfile
+- **Cloud**: Google Drive API v3 (OAuth2 + resumable uploads)
+- **Others**: Thread-safe logging, graceful optional dependencies
 
-- Population
+---
 
-- And many more…
+## 📁 Project Structure
 
-* Project Overview
+Nigeria.py                  # Main Streamlit app (Everything in one file)
+├── ThreadSafeLogger
+├── GoogleDriveManager
+├── NigerianStatsScraper (Base)
+├── EnhancedNigerianStatsScraper (Advanced crawling)
+├── PDF & Export Helpers
+└── Streamlit UI + Session State
+text---
 
-This repository contains multiple Python modules designed for different but connected purposes:
+## ⚙️ How to Run Locally
 
-🔎 Web scraping (HTML + table extraction)
+### Prerequisites
+- Python 3.9+
+- Chrome (for optional Selenium)
 
-📊 Table parsing (pandas + manual extraction)
+### Setup
 
-📄 PDF processing (PyPDF2, pdfplumber, pdfminer, PyMuPDF)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/Nigeria-Data-Scraper.git
+   cd Nigeria-Data-Scraper
 
-📁 Data export (CSV, Excel, JSON)
+Install dependencies:Bashpip install -r requirements.txt
+Google Drive Setup (Optional but recommended):
+Follow the Google Drive Setup Guide
+Place credentials.json in the project root
 
-☁️ Optional Google Drive integration
-
-🖥️ Interactive Streamlit dashboard interface
-
-Each Python file handles a specific responsibility (scraping, table extraction, export, PDF handling, UI, etc.), making the system modular and scalable.
-
-⚙️ Key Features
-
-- Topic-based scraping system for Nigerian data
-
-- Automatic table detection using:
-
-- pandas.read_html
-
-- BeautifulSoup manual parsing
-
-- Smart keyword filtering
-
-- Multi-source scraping (World Bank, NBS, IMF, FAO, CBN, etc.)
-
-- Text pattern extraction for statistics (%, large numbers, million/billion)
-
-Export to:
-
-CSV
-
-Excel
-
-JSON
-
-Metadata generation for each table
-
-Downloadable ZIP packages
-
-Clean Streamlit dashboard interface
+Run the app:Bashstreamlit run Nigeria.py
 
 
-* Architecture
 
-The system is structured into:
+Key Technical Highlights
 
-- Scraper Layer – Handles HTTP requests and source parsing
-
-- Table Extraction Layer – Extracts and processes structured HTML tables
-
-- Text Extraction Layer – Extracts statistical text-based data
-
-- Export Layer – Saves results to CSV, Excel, JSON
-
-- UI Layer (Streamlit) – Interactive dashboard for scraping and downloads
-
-* Tech Stack
-
-Python, Streamlit, Pandas, BeautifulSoup, Requests, NumPy, pdfplumber / PyPDF2 / pdfminer / PyMuPDF
+Robust PDF Downloader with multiple user agents and exponential backoff
+BFS Crawling Engine using collections.deque
+ThreadSafeLogger for concurrent operations
+Graceful Degradation — Works even if optional libraries (Selenium, PDF tools) are missing
+Smart Link Prioritization — PDFs and statistical pages ranked higher
 
 
-* Use Cases
+🎯 Use Cases
 
-Economic research, Policy analysis, Nigerian sectoral data collection, Academic research, Journalism & reporting
-Dashboard data pipelines, Automated data gathering
+Economic research & policy analysis
+Academic studies on Nigeria
+Journalism and data reporting
+Automated data collection for dashboards
+Personal research and monitoring
+
+
+📌 Future Roadmap
+
+Deploy to Streamlit Community Cloud (Service Account)
+Scheduled daily scraping
+Better PDF text extraction (OCR fallback)
+Docker support
+API version (FastAPI)
+More data sources
+
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+Feel free to open an issue or submit a pull request.
